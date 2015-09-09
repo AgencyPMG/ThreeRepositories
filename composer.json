@@ -1,0 +1,18 @@
+{
+    "name": "pmg/three-repositories",
+    "description": "Some example code for a blog post",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.5",
+        "doctrine/orm": "~2.5",
+        "illuminate/database": "~5.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PMG\\ThreeRepositories\\": "src/"
+        }
+    }
+}
