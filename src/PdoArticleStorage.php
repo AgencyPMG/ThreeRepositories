@@ -32,6 +32,9 @@ final class PdoArticleStorage implements ArticleStorage
         $this->conn = $conn;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function find($id)
     {
         $stm = $this->conn->prepare($this->getSelect().' WHERE id = :id LIMIT 1');
@@ -44,6 +47,9 @@ final class PdoArticleStorage implements ArticleStorage
         return $res ? $this->toObject($res) : null;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function findAll()
     {
         $stm = $this->conn->query(
@@ -55,6 +61,9 @@ final class PdoArticleStorage implements ArticleStorage
         return $out;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function findByYear($year)
     {
         $stm = $this->conn->prepare(
@@ -68,6 +77,9 @@ final class PdoArticleStorage implements ArticleStorage
         return $out;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function persist(Article $article)
     {
         $id = $article->getIdentifier();
@@ -101,6 +113,9 @@ final class PdoArticleStorage implements ArticleStorage
         return $id ? $id : intval($this->conn->lastInsertId());
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function remove($article)
     {
         $stm = $this->conn->prepare('DELETE FROM '.self::TABLE.' WHERE id = :id');
