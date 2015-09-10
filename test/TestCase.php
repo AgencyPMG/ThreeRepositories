@@ -14,5 +14,37 @@ namespace PMG\ThreeRepositories;
 
 abstract class TestCase extends \PHPUnit_Framework_TestCase
 {
+    protected $store;
 
+    public function testArticlesCanBePersistedUpdatedFetchedAndRemoved()
+    {
+        $this->assertEmpty($this->store->findAll());
+        $this->assertEmpty($this->store->findByYear(2015));
+
+        $article = $this->createArticle();
+        $article->setTitle('Hello');
+        $article->setBody('World');
+        $article->setYear(2015);
+
+        $id = $this->store->persist($article);
+
+        $this->assertCount(1, $this->store->findAll());
+        $this->assertEmpty($this->store->findByYear(2014));
+        $this->assertCount(1, $this->store->findByYear(2015));
+
+        $article = $this->store->find($id);
+        $this->assertInstanceOf(Article::class, $article);
+
+        $article->setTitle('changed');
+        $this->store->persist($article);
+
+        $article = $this->store->find($id);
+        $this->assertInstanceOf(Article::class, $article);
+        $this->assertEquals('changed', $article->getTitle());
+
+        $this->store->remove($article);
+        $this->assertNull($this->store->find($id));
+    }
+
+    abstract protected function createArticle();
 }
