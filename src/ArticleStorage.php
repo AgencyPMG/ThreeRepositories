@@ -24,6 +24,7 @@ interface ArticleStorage extends ArticleRepository
      *
      * @param   $article The article to persist. If an ID is present the article
      *          will be updated.
+     * @return  int The article's primary key.
      */
     public function persist(Article $article);
 
