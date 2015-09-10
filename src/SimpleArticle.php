@@ -27,7 +27,7 @@ class SimpleArticle implements Article
 
     public function __construct($id=null)
     {
-        $this->id = $id;
+        $this->id = null === $id ? $id : intval($id);
     }
 
     public function getIdentifier()
