@@ -16,7 +16,7 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\Tools\SchemaTool;
 use Doctrine\ORM\EntityManager;
 
-class DoctrineArticleStorageTest extends TestCase
+class DoctrineArticleRepositoryTest extends TestCase
 {
     private $em;
 
@@ -33,7 +33,7 @@ class DoctrineArticleStorageTest extends TestCase
         $tool = new SchemaTool($this->em);
         $tool->createSchema($this->em->getMetadataFactory()->getAllMetadata());
 
-        $this->store = $this->em->getRepository(SimpleArticle::class);
+        $this->repo = $this->em->getRepository(SimpleArticle::class);
     }
 
     protected function createArticle()

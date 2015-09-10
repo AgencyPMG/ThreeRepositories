@@ -14,7 +14,7 @@ namespace PMG\ThreeRepositories;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-class EloquentArticleStorageTest extends TestCase
+class EloquentArticleRepositoryTest extends TestCase
 {
     private $capsule;
 
@@ -23,7 +23,7 @@ class EloquentArticleStorageTest extends TestCase
      */
     public function testAddWithInvalidClassCausesError()
     {
-        $this->store->add(new SimpleArticle());
+        $this->repo->add(new SimpleArticle());
     }
 
     protected function setUp()
@@ -46,7 +46,7 @@ class EloquentArticleStorageTest extends TestCase
                 $table->integer('publishyear');
             });
 
-        $this->store = new EloquentArticleStorage();
+        $this->repo = new EloquentArticleRepository();
     }
 
     protected function createArticle()

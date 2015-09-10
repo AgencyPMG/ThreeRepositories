@@ -12,7 +12,7 @@
 
 namespace PMG\ThreeRepositories;
 
-class PdoArticleStorageTest extends TestCase
+class PdoArticleRepositoryTest extends TestCase
 {
     private $conn;
 
@@ -20,7 +20,7 @@ class PdoArticleStorageTest extends TestCase
     {
         $this->conn = new \PDO('sqlite::memory:');
         $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        $this->store = new PdoArticleStorage($this->conn);
+        $this->repo = new PdoArticleRepository($this->conn);
 
         $this->conn->exec(
             'CREATE TABLE articles (

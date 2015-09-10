@@ -15,13 +15,13 @@ namespace PMG\ThreeRepositories;
 use Doctrine\ORM\EntityRepository;
 
 /**
- * An `ArticleStorage` implementation backed by Doctrine's ORM.
+ * An `ArticleRepository` implementation backed by Doctrine's ORM.
  *
  * Entity repository provides `find` and `findAll` for us.
  *
  * @since   0.1
  */
-final class DoctrineArticleStorage extends EntityRepository implements ArticleRepository
+final class DoctrineArticleRepository extends EntityRepository implements ArticleRepository
 {
     /**
      * {@inheritdoc}

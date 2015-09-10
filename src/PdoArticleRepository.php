@@ -13,12 +13,12 @@
 namespace PMG\ThreeRepositories;
 
 /**
- * An `ArticleStorage` implementation backed by plain old PDO and embedded
+ * An `ArticleRepository` implementation backed by plain old PDO and embedded
  * SQL.
  *
  * @since   0.1
  */
-final class PdoArticleStorage implements ArticleRepository
+final class PdoArticleRepository implements ArticleRepository
 {
     const TABLE = 'articles';
 

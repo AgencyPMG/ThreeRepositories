@@ -13,11 +13,11 @@
 namespace PMG\ThreeRepositories;
 
 /**
- * An article storage implementation backed by Laravel's Eloquent.
+ * An article repo implementation backed by Laravel's Eloquent.
  *
  * @since   0.1
  */
-final class EloquentArticleStorage implements ArticleRepository
+final class EloquentArticleRepository implements ArticleRepository
 {
     /**
      * {@inheritdoc}

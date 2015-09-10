@@ -3,7 +3,7 @@
       xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                     http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
 
-    <entity name="PMG\ThreeRepositories\SimpleArticle" table="articles" repository-class="PMG\ThreeRepositories\DoctrineArticleStorage">
+    <entity name="PMG\ThreeRepositories\SimpleArticle" table="articles" repository-class="PMG\ThreeRepositories\DoctrineArticleRepository">
         <id name="id" type="integer">
             <generator strategy="AUTO" />
         </id>
