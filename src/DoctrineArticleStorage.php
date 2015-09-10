@@ -21,7 +21,7 @@ use Doctrine\ORM\EntityRepository;
  *
  * @since   0.1
  */
-final class DoctrineArticleStorage extends EntityRepository implements ArticleStorage
+final class DoctrineArticleStorage extends EntityRepository implements ArticleRepository
 {
     /**
      * {@inheritdoc}
@@ -50,7 +50,7 @@ final class DoctrineArticleStorage extends EntityRepository implements ArticleSt
     /**
      * {@inheritdoc}
      */
-    public function persist(Article $article)
+    public function add(Article $article)
     {
         $em = $this->getEntityManager();
         $em->persist($article);

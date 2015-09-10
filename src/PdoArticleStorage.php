@@ -18,7 +18,7 @@ namespace PMG\ThreeRepositories;
  *
  * @since   0.1
  */
-final class PdoArticleStorage implements ArticleStorage
+final class PdoArticleStorage implements ArticleRepository
 {
     const TABLE = 'articles';
 
@@ -80,7 +80,7 @@ final class PdoArticleStorage implements ArticleStorage
     /**
      * {@inheritdoc}
      */
-    public function persist(Article $article)
+    public function add(Article $article)
     {
         $id = $article->getIdentifier();
         $params = [

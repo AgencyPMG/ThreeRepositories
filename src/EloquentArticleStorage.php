@@ -17,7 +17,7 @@ namespace PMG\ThreeRepositories;
  *
  * @since   0.1
  */
-final class EloquentArticleStorage implements ArticleStorage
+final class EloquentArticleStorage implements ArticleRepository
 {
     /**
      * {@inheritdoc}
@@ -52,7 +52,7 @@ final class EloquentArticleStorage implements ArticleStorage
     /**
      * {@inheritdoc}
      */
-    public function persist(Article $article)
+    public function add(Article $article)
     {
         if (!$article instanceof EloquentArticle) {
             throw new \InvalidArgumentException(sprintf(

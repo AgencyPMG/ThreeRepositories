@@ -42,4 +42,21 @@ interface ArticleRepository
      * @return  Article[]
      */
     public function findByYear($year);
+
+    /**
+     * Add the article to the repository.
+     *
+     * @param   $article The article to persist. If an ID is present the article
+     *          will be updated.
+     * @return  int The article's primary key.
+     */
+    public function add(Article $article);
+
+    /**
+     * Remove an article from the storage backend.
+     *
+     * @param   Article|int $article The article to remove
+     * @return  void
+     */
+    public function remove($article);
 }

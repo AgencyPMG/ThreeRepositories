@@ -21,9 +21,9 @@ class EloquentArticleStorageTest extends TestCase
     /**
      * @expectedException InvalidArgumentException
      */
-    public function testPersistWithInvalidClassCausesError()
+    public function testAddWithInvalidClassCausesError()
     {
-        $this->store->persist(new SimpleArticle());
+        $this->store->add(new SimpleArticle());
     }
 
     protected function setUp()

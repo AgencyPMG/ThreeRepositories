@@ -26,7 +26,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
         $article->setBody('World');
         $article->setYear(2015);
 
-        $id = $this->store->persist($article);
+        $id = $this->store->add($article);
 
         $this->assertCount(1, $this->store->findAll());
         $this->assertEmpty($this->store->findByYear(2014));
@@ -36,7 +36,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(Article::class, $article);
 
         $article->setTitle('changed');
-        $this->store->persist($article);
+        $this->store->add($article);
 
         $article = $this->store->find($id);
         $this->assertInstanceOf(Article::class, $article);
